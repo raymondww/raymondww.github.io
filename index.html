@@ -727,23 +727,24 @@ a { color: inherit; text-decoration: none; }
 .contact-link:hover .cl-arr { color: var(--accent); transform: translate(2px,-2px); }
 
 /* ─── FOOTER ─── */
-.site-footer {
-  margin-left: var(--sidebar-w);
+.site-footer{
   border-top: 1px solid var(--border);
   padding: 1.25rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
+
+  /* match the page background so it doesn't look like a bright strip */
+  background: var(--bg);
 }
 
-.site-footer span {
+.site-footer span{
   font-family: var(--font-mono);
   font-size: 10px;
   color: var(--text-3);
 }
 
-.site-footer a { color: var(--accent); }
+.site-footer a{ color: var(--accent); }
 
 /* ─── FADE IN ─── */
 .fade-in { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
@@ -810,15 +811,16 @@ a { color: inherit; text-decoration: none; }
 
   <div class="sidebar-skills-label">Skills</div>
   <div class="skills-pills">
-    <span>Python</span><span>PyTorch</span><span>YOLOv8</span>
-    <span>RAG</span><span>BM25</span><span>FastAPI</span>
-    <span>LLMs</span><span>SQL</span><span>Docker</span>
+    <span>Python</span><span>PyTorch</span><span>SQL</span>
+    <span>RAG</span><span>R</span><span>ML</span>
+    <span>LLMs</span>
   </div>
 </aside>
 
 <!-- ─── MAIN ─── -->
 <div class="main">
-  <div class="main-content"></div>
+  <div class="main-content">
+
     <!-- HERO / INTRO -->
     <div class="hero fade-in" id="intro">
       <div class="hero-eyebrow">ML Engineer &amp; Data Scientist</div>
@@ -832,7 +834,7 @@ a { color: inherit; text-decoration: none; }
         Previously 3 years as a Data Scientist at <strong>JLL Technologies</strong>.
       </p>
       <div class="hero-btns">
-        <a href="#rag"     class="btn btn-primary">View Projects →</a>
+        <a href="#rag" class="btn btn-primary">View Projects →</a>
         <a href="https://github.com/raymondww" target="_blank" class="btn btn-ghost">GitHub ↗</a>
         <a href="mailto:raymond.w.wang@hotmail.com" class="btn btn-ghost">Get in Touch</a>
       </div>
@@ -1087,13 +1089,14 @@ a { color: inherit; text-decoration: none; }
         </div>
       </div>
     </section>
-      <footer class="site-footer">
-    <span>© 2026 Wenrui (Raymond) Wang</span>
-    <span>Built with HTML · FastAPI · GitHub</span>
-  </footer>
-</div>
 
+  </div><!-- end .main-content -->
+
+  <footer class="site-footer">
+    <span>© 2026 Wenrui (Raymond) Wang | Built with HTML · FastAPI · GitHub</span>
+  </footer>
 </div><!-- end .main -->
+
 
 <script>
 // ─── Active TOC on scroll ───
