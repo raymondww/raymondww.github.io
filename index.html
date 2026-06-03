@@ -244,10 +244,17 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ─── MAIN ─── */
-.main {
+.main{
   margin-left: var(--sidebar-w);
   flex: 1;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content{
+  flex: 1;
 }
 
 /* ─── HERO STRIP ─── */
@@ -807,288 +814,286 @@ a { color: inherit; text-decoration: none; }
     <span>RAG</span><span>BM25</span><span>FastAPI</span>
     <span>LLMs</span><span>SQL</span><span>Docker</span>
   </div>
-
-  <div class="sidebar-footer">© 2026 Raymond Wang</div>
 </aside>
 
 <!-- ─── MAIN ─── -->
 <div class="main">
-
-  <!-- HERO / INTRO -->
-  <div class="hero fade-in" id="intro">
-    <div class="hero-eyebrow">ML Engineer &amp; Data Scientist</div>
-    <h1>ML Engineer<br><em>&amp; Data Scientist.</em></h1>
-    <div class="hero-sub-title">MDS · UBC | BCom IT · Toronto Metropolitan University | MITx MicroMasters · Statistics &amp; Data Science</div>
-    <p class="hero-desc">
-      I build <strong>intelligent search systems, computer vision pipelines, and applied ML tools</strong>
-      that solve real problems at scale. From RAG search engines with BM25 and semantic retrieval,
-      to multi-object tracking systems for livestock monitoring — I ship end-to-end ML that works.
-      Currently completing a <strong>Master of Data Science at UBC</strong>, graduating June 2026.
-      Previously 3 years as a Data Scientist at <strong>JLL Technologies</strong>.
-    </p>
-    <div class="hero-btns">
-      <a href="#rag"     class="btn btn-primary">View Projects →</a>
-      <a href="https://github.com/raymondww" target="_blank" class="btn btn-ghost">GitHub ↗</a>
-      <a href="mailto:raymond.w.wang@hotmail.com" class="btn btn-ghost">Get in Touch</a>
-    </div>
-    <div class="hero-jump-links">
-      <a href="#rag">→ RAG Search Engine</a>
-      <a href="#cv">→ Computer Vision</a>
-      <a href="#industry">→ Industry Work</a>
-    </div>
-  </div>
-
-  <!-- RECENT ACTIVITIES -->
-  <section class="section fade-in" id="recent">
-    <div class="sec-num">02</div>
-    <h2>Recent Activities</h2>
-    <div class="activity-list">
-      <div class="activity-item">
-        <div class="activity-icon">🎓</div>
-        <div class="activity-body">
-          <p><strong>Graduating June 2026 —</strong> Completing the Master of Data Science at UBC.
-          Capstone project MooVision delivered a full multi-object tracking and temporal behavior
-          classification pipeline for dairy calf welfare monitoring.</p>
-        </div>
-      </div>
-      <div class="activity-item">
-        <div class="activity-icon">🔍</div>
-        <div class="activity-body">
-          <p><strong>RAG Engine Live Demo —</strong> Built a full-stack retrieval-augmented generation
-          search engine from scratch with BM25, inverted index, TF-IDF scoring, and semantic vector
-          search. Live demo searches 5,000 movies in real time — try it below in the projects section.</p>
-        </div>
-      </div>
-      <div class="activity-item">
-        <div class="activity-icon">🚗</div>
-        <div class="activity-body">
-          <p><strong>Exploring AV &amp; Robotics Roles —</strong> Actively researching opportunities
-          in autonomous vehicles, robotics perception, and spatial AI — areas where my CV background
-          and temporal modelling experience are directly applicable.</p>
-        </div>
-      </div>
-      <div class="activity-item">
-        <div class="activity-icon">🤖</div>
-        <div class="activity-body">
-          <p><strong>Local LLM Agent —</strong> Built an English → Chinese translation CLI agent
-          using Ollama with a local Gemma 4 model, designed to preserve functional grammar nuance
-          and register for Chinese speakers learning academic English.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RAG ENGINE -->
-  <section class="section fade-in" id="rag">
-    <div class="sec-num">03</div>
-    <h2>🔍 RAG Search Engine</h2>
-
-    <div class="project-card featured">
-      <div class="card-top">
-        <div class="card-badges">
-          <span class="badge b-wip">In Progress</span>
-          <span class="badge b-feature">Featured</span>
-        </div>
-        <div class="card-num">01</div>
-      </div>
-      <div class="card-title">RAG Search Engine</div>
-      <div class="card-sub">Full-Stack NLP · BM25 · Semantic Search · FastAPI</div>
-      <p class="card-desc">
-        Built a retrieval-augmented generation search engine from scratch, implementing
-        <strong>BM25 keyword ranking</strong> with stemming and length normalization,
-        an inverted index for fast lookup, <strong>TF-IDF scoring</strong>, and dense
-        semantic vector search. The full pipeline is exposed via a FastAPI backend
-        and supports real-time querying at scale.
+  <div class="main-content"></div>
+    <!-- HERO / INTRO -->
+    <div class="hero fade-in" id="intro">
+      <div class="hero-eyebrow">ML Engineer &amp; Data Scientist</div>
+      <h1>ML Engineer<br><em>&amp; Data Scientist.</em></h1>
+      <div class="hero-sub-title">MDS · UBC | BCom IT · Toronto Metropolitan University | MITx MicroMasters · Statistics &amp; Data Science</div>
+      <p class="hero-desc">
+        I build <strong>intelligent search systems, computer vision pipelines, and applied ML tools</strong>
+        that solve real problems at scale. From RAG search engines with BM25 and semantic retrieval,
+        to multi-object tracking systems for livestock monitoring — I ship end-to-end ML that works.
+        Currently completing a <strong>Master of Data Science at UBC</strong>, graduating June 2026.
+        Previously 3 years as a Data Scientist at <strong>JLL Technologies</strong>.
       </p>
-      <div class="card-tags">
-        <span class="tag">BM25</span>
-        <span class="tag">Inverted Index</span>
-        <span class="tag">TF-IDF</span>
-        <span class="tag">Semantic Search</span>
-        <span class="tag">FastAPI</span>
-        <span class="tag">Python</span>
-        <span class="tag">NLP</span>
-        <span class="tag">Render</span>
+      <div class="hero-btns">
+        <a href="#rag"     class="btn btn-primary">View Projects →</a>
+        <a href="https://github.com/raymondww" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+        <a href="mailto:raymond.w.wang@hotmail.com" class="btn btn-ghost">Get in Touch</a>
       </div>
-      <div class="card-links">
-        <a href="https://github.com/raymondww" target="_blank" class="card-link">GitHub →</a>
+      <div class="hero-jump-links">
+        <a href="#rag">→ RAG Search Engine</a>
+        <a href="#cv">→ Computer Vision</a>
+        <a href="#industry">→ Industry Work</a>
       </div>
+    </div>
 
-      <!-- LIVE DEMO -->
-      <div class="demo-inner">
-        <div class="demo-inner-label">Live Demo — BM25 Movie Search</div>
-        <div class="search-bar">
-          <input type="text" id="search-input" placeholder="Try: animated family, sci-fi space, action heist..." />
-          <button onclick="runSearch()">Search</button>
+    <!-- RECENT ACTIVITIES -->
+    <section class="section fade-in" id="recent">
+      <div class="sec-num">02</div>
+      <h2>Recent Activities</h2>
+      <div class="activity-list">
+        <div class="activity-item">
+          <div class="activity-icon">🎓</div>
+          <div class="activity-body">
+            <p><strong>Graduating June 2026 —</strong> Completing the Master of Data Science at UBC.
+            Capstone project MooVision delivered a full multi-object tracking and temporal behavior
+            classification pipeline for dairy calf welfare monitoring.</p>
+          </div>
         </div>
-        <div class="search-results" id="search-results">
-          <p style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);">Enter a query to search 5,000 movies using BM25 ranking.</p>
+        <div class="activity-item">
+          <div class="activity-icon">🔍</div>
+          <div class="activity-body">
+            <p><strong>RAG Engine Live Demo —</strong> Built a full-stack retrieval-augmented generation
+            search engine from scratch with BM25, inverted index, TF-IDF scoring, and semantic vector
+            search. Live demo searches 5,000 movies in real time — try it below in the projects section.</p>
+          </div>
         </div>
-        <p class="demo-note">
-          Backend: Python FastAPI · BM25 with stemming &amp; stopword removal ·
-          Hosted on <a href="https://render.com" target="_blank">Render</a> ·
-          <a href="https://github.com/raymondww" target="_blank">Source ↗</a>
+        <div class="activity-item">
+          <div class="activity-icon">🚗</div>
+          <div class="activity-body">
+            <p><strong>Exploring AV &amp; Robotics Roles —</strong> Actively researching opportunities
+            in autonomous vehicles, robotics perception, and spatial AI — areas where my CV background
+            and temporal modelling experience are directly applicable.</p>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon">🤖</div>
+          <div class="activity-body">
+            <p><strong>Local LLM Agent —</strong> Built an English → Chinese translation CLI agent
+            using Ollama with a local Gemma 4 model, designed to preserve functional grammar nuance
+            and register for Chinese speakers learning academic English.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RAG ENGINE -->
+    <section class="section fade-in" id="rag">
+      <div class="sec-num">03</div>
+      <h2>🔍 RAG Search Engine</h2>
+
+      <div class="project-card featured">
+        <div class="card-top">
+          <div class="card-badges">
+            <span class="badge b-wip">In Progress</span>
+            <span class="badge b-feature">Featured</span>
+          </div>
+          <div class="card-num">01</div>
+        </div>
+        <div class="card-title">RAG Search Engine</div>
+        <div class="card-sub">Full-Stack NLP · BM25 · Semantic Search · FastAPI</div>
+        <p class="card-desc">
+          Built a retrieval-augmented generation search engine from scratch, implementing
+          <strong>BM25 keyword ranking</strong> with stemming and length normalization,
+          an inverted index for fast lookup, <strong>TF-IDF scoring</strong>, and dense
+          semantic vector search. The full pipeline is exposed via a FastAPI backend
+          and supports real-time querying at scale.
         </p>
-      </div>
-    </div>
-
-    <div class="more-coming">More search &amp; retrieval projects in progress — vector DBs, RAG pipelines, and hybrid rankers under active development.</div>
-  </section>
-
-  <!-- COMPUTER VISION -->
-  <section class="section fade-in" id="cv">
-    <div class="sec-num">04</div>
-    <h2>🐄 Computer Vision</h2>
-
-    <div class="project-card">
-      <div class="card-top">
-        <div class="card-badges">
-          <span class="badge b-done">Capstone · UBC 2026</span>
+        <div class="card-tags">
+          <span class="tag">BM25</span>
+          <span class="tag">Inverted Index</span>
+          <span class="tag">TF-IDF</span>
+          <span class="tag">Semantic Search</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Python</span>
+          <span class="tag">NLP</span>
+          <span class="tag">Render</span>
         </div>
-        <div class="card-num">02</div>
-      </div>
-      <div class="card-title">MooVision</div>
-      <div class="card-sub">Computer Vision · Multi-Object Tracking · Temporal Classification</div>
-      <p class="card-desc">
-        Real-time dairy calf behavior detection system built as UBC MDS Capstone.
-        Uses <strong>YOLOv8</strong> for per-frame object detection, <strong>ByteTrack</strong>
-        for multi-object tracking across frames, and <strong>LSTM</strong> for temporal behavior
-        classification. Dockerized pipeline with live video feed ingestion — evaluated on F2 score
-        for precision livestock farming and automated welfare monitoring.
-      </p>
-      <div class="card-tags">
-        <span class="tag">YOLOv8</span>
-        <span class="tag">ByteTrack</span>
-        <span class="tag">LSTM</span>
-        <span class="tag">PyTorch</span>
-        <span class="tag">Docker</span>
-        <span class="tag">OpenCV</span>
-        <span class="tag">Python</span>
-        <span class="tag">Computer Vision</span>
-      </div>
-      <div class="card-links">
-        <a href="https://github.com/raymondww" target="_blank" class="card-link">GitHub →</a>
-      </div>
-    </div>
+        <div class="card-links">
+          <a href="https://github.com/raymondww" target="_blank" class="card-link">GitHub →</a>
+        </div>
 
-    <div class="more-coming">Street-view CV work and additional perception projects documented in Industry Work below.</div>
-  </section>
+        <!-- LIVE DEMO -->
+        <div class="demo-inner">
+          <div class="demo-inner-label">Live Demo — BM25 Movie Search</div>
+          <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Try: animated family, sci-fi space, action heist..." />
+            <button onclick="runSearch()">Search</button>
+          </div>
+          <div class="search-results" id="search-results">
+            <p style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);">Enter a query to search 5,000 movies using BM25 ranking.</p>
+          </div>
+          <p class="demo-note">
+            Backend: Python FastAPI · BM25 with stemming &amp; stopword removal ·
+            Hosted on <a href="https://render.com" target="_blank">Render</a> ·
+            <a href="https://github.com/raymondww" target="_blank">Source ↗</a>
+          </p>
+        </div>
+      </div>
 
-  <!-- INDUSTRY WORK -->
-  <section class="section fade-in" id="industry">
-    <div class="sec-num">05</div>
-    <h2>🏢 Industry Work</h2>
+      <div class="more-coming">More search &amp; retrieval projects in progress — vector DBs, RAG pipelines, and hybrid rankers under active development.</div>
+    </section>
 
-    <div class="project-card">
-      <div class="card-top">
-        <div class="card-badges"><span class="badge b-done">Complete · JLL</span></div>
-        <div class="card-num">03</div>
-      </div>
-      <div class="card-title">Vacancy Anxiety Index</div>
-      <div class="card-sub">Propensity Scoring · Recommendation System · Commercial Real Estate</div>
-      <p class="card-desc">
-        Built a propensity scoring model and lead recommendation system during tenure at JLL,
-        modelling tenant anxiety around commercial vacancy across Guangzhou submarkets.
-        Combines feature engineering with interpretable scoring to surface at-risk tenants
-        for proactive outreach — reducing manual analyst time significantly.
-      </p>
-      <div class="card-tags">
-        <span class="tag">Propensity Scoring</span>
-        <span class="tag">Scikit-learn</span>
-        <span class="tag">Feature Engineering</span>
-        <span class="tag">Python</span>
-        <span class="tag">SQL</span>
-      </div>
-    </div>
+    <!-- COMPUTER VISION -->
+    <section class="section fade-in" id="cv">
+      <div class="sec-num">04</div>
+      <h2>🐄 Computer Vision</h2>
 
-    <div class="project-card">
-      <div class="card-top">
-        <div class="card-badges"><span class="badge b-done">Complete · JLL</span></div>
-        <div class="card-num">04</div>
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-badges">
+            <span class="badge b-done">Capstone · UBC 2026</span>
+          </div>
+          <div class="card-num">02</div>
+        </div>
+        <div class="card-title">MooVision</div>
+        <div class="card-sub">Computer Vision · Multi-Object Tracking · Temporal Classification</div>
+        <p class="card-desc">
+          Real-time dairy calf behavior detection system built as UBC MDS Capstone.
+          Uses <strong>YOLOv8</strong> for per-frame object detection, <strong>ByteTrack</strong>
+          for multi-object tracking across frames, and <strong>LSTM</strong> for temporal behavior
+          classification. Dockerized pipeline with live video feed ingestion — evaluated on F2 score
+          for precision livestock farming and automated welfare monitoring.
+        </p>
+        <div class="card-tags">
+          <span class="tag">YOLOv8</span>
+          <span class="tag">ByteTrack</span>
+          <span class="tag">LSTM</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">Docker</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">Python</span>
+          <span class="tag">Computer Vision</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/raymondww" target="_blank" class="card-link">GitHub →</a>
+        </div>
       </div>
-      <div class="card-title">睿见数据 — News Intelligence Platform</div>
-      <div class="card-sub">LLM Pipelines · OCR · Chinese NLP · Airflow</div>
-      <p class="card-desc">
-        LLM-powered news intelligence platform built internally at JLL under the brand 睿见数据
-        (Ruijian Shuju). OCR scraping pipeline for structured extraction from unstructured Chinese-language
-        media sources — using <strong>GPT-3.5</strong> with custom prompt chains for entity extraction,
-        sentiment, and summarization. Orchestrated with Airflow on Alibaba Cloud with PolarDB storage.
-      </p>
-      <div class="card-tags">
-        <span class="tag">GPT-3.5</span>
-        <span class="tag">OCR</span>
-        <span class="tag">LLM Pipelines</span>
-        <span class="tag">Airflow</span>
-        <span class="tag">Alibaba Cloud</span>
-        <span class="tag">PolarDB</span>
-        <span class="tag">Jieba NLP</span>
-      </div>
-    </div>
 
-    <div class="project-card">
-      <div class="card-top">
-        <div class="card-badges"><span class="badge b-done">Complete · JLL</span></div>
-        <div class="card-num">05</div>
-      </div>
-      <div class="card-title">Street-View Real Estate CV Models</div>
-      <div class="card-sub">Computer Vision · OCR · Street-View Imagery · Property Analytics</div>
-      <p class="card-desc">
-        Led development of automated CV models extracting property attributes and signage data
-        from street-level imagery at scale across JLL's Guangzhou commercial portfolio.
-        Combined OCR pipelines with object classification to reduce manual data collection time
-        by 60%+ — enabling faster vacancy and absorption rate reporting.
-      </p>
-      <div class="card-tags">
-        <span class="tag">Computer Vision</span>
-        <span class="tag">OCR</span>
-        <span class="tag">OpenCV</span>
-        <span class="tag">Python</span>
-        <span class="tag">Street-View</span>
-      </div>
-    </div>
-  </section>
+      <div class="more-coming">Street-view CV work and additional perception projects documented in Industry Work below.</div>
+    </section>
 
-  <!-- CONTACT -->
-  <section class="section fade-in" id="contact">
-    <div class="sec-num">06</div>
-    <h2>✉️ Get in Touch</h2>
-    <div class="contact-body">
-      <div class="contact-prose">
-        <p>I'm actively looking for <strong>ML engineering and data science roles</strong> in North America.</p>
-        <p>Whether it's a role, a collaboration, or a conversation about ML, autonomous perception,
-        or search systems — I'd love to connect.</p>
+    <!-- INDUSTRY WORK -->
+    <section class="section fade-in" id="industry">
+      <div class="sec-num">05</div>
+      <h2>🏢 Industry Work</h2>
+
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-badges"><span class="badge b-done">Complete · JLL</span></div>
+          <div class="card-num">03</div>
+        </div>
+        <div class="card-title">Vacancy Anxiety Index</div>
+        <div class="card-sub">Propensity Scoring · Recommendation System · Commercial Real Estate</div>
+        <p class="card-desc">
+          Built a propensity scoring model and lead recommendation system during tenure at JLL,
+          modelling tenant anxiety around commercial vacancy across Guangzhou submarkets.
+          Combines feature engineering with interpretable scoring to surface at-risk tenants
+          for proactive outreach — reducing manual analyst time significantly.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Propensity Scoring</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">Feature Engineering</span>
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+        </div>
       </div>
-      <div class="contact-links">
-        <a href="mailto:raymond.w.wang@hotmail.com" class="contact-link">
-          <span class="cl-label">Email</span>
-          <span class="cl-val">raymond.w.wang@hotmail.com</span>
-          <span class="cl-arr">↗</span>
-        </a>
-        <a href="https://linkedin.com/in/raymondwwang" target="_blank" class="contact-link">
-          <span class="cl-label">LinkedIn</span>
-          <span class="cl-val">raymondwwang</span>
-          <span class="cl-arr">↗</span>
-        </a>
-        <a href="https://github.com/raymondww" target="_blank" class="contact-link">
-          <span class="cl-label">GitHub</span>
-          <span class="cl-val">raymondww</span>
-          <span class="cl-arr">↗</span>
-        </a>
-        <a href="/resume.pdf" class="contact-link">
-          <span class="cl-label">Resume</span>
-          <span class="cl-val">Download PDF</span>
-          <span class="cl-arr">↓</span>
-        </a>
+
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-badges"><span class="badge b-done">Complete · JLL</span></div>
+          <div class="card-num">04</div>
+        </div>
+        <div class="card-title">睿见数据 — News Intelligence Platform</div>
+        <div class="card-sub">LLM Pipelines · OCR · Chinese NLP · Airflow</div>
+        <p class="card-desc">
+          LLM-powered news intelligence platform built internally at JLL under the brand 睿见数据
+          (Ruijian Shuju). OCR scraping pipeline for structured extraction from unstructured Chinese-language
+          media sources — using <strong>GPT-3.5</strong> with custom prompt chains for entity extraction,
+          sentiment, and summarization. Orchestrated with Airflow on Alibaba Cloud with PolarDB storage.
+        </p>
+        <div class="card-tags">
+          <span class="tag">GPT-3.5</span>
+          <span class="tag">OCR</span>
+          <span class="tag">LLM Pipelines</span>
+          <span class="tag">Airflow</span>
+          <span class="tag">Alibaba Cloud</span>
+          <span class="tag">PolarDB</span>
+          <span class="tag">Jieba NLP</span>
+        </div>
       </div>
-    </div>
-  </section>
+
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-badges"><span class="badge b-done">Complete · JLL</span></div>
+          <div class="card-num">05</div>
+        </div>
+        <div class="card-title">Street-View Real Estate CV Models</div>
+        <div class="card-sub">Computer Vision · OCR · Street-View Imagery · Property Analytics</div>
+        <p class="card-desc">
+          Led development of automated CV models extracting property attributes and signage data
+          from street-level imagery at scale across JLL's Guangzhou commercial portfolio.
+          Combined OCR pipelines with object classification to reduce manual data collection time
+          by 60%+ — enabling faster vacancy and absorption rate reporting.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Computer Vision</span>
+          <span class="tag">OCR</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">Python</span>
+          <span class="tag">Street-View</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section fade-in" id="contact">
+      <div class="sec-num">06</div>
+      <h2>✉️ Get in Touch</h2>
+      <div class="contact-body">
+        <div class="contact-prose">
+          <p>I'm actively looking for <strong>ML engineering and data science roles</strong> in North America.</p>
+          <p>Whether it's a role, a collaboration, or a conversation about ML, autonomous perception,
+          or search systems — I'd love to connect.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:raymond.w.wang@hotmail.com" class="contact-link">
+            <span class="cl-label">Email</span>
+            <span class="cl-val">raymond.w.wang@hotmail.com</span>
+            <span class="cl-arr">↗</span>
+          </a>
+          <a href="https://linkedin.com/in/raymondwwang" target="_blank" class="contact-link">
+            <span class="cl-label">LinkedIn</span>
+            <span class="cl-val">raymondwwang</span>
+            <span class="cl-arr">↗</span>
+          </a>
+          <a href="https://github.com/raymondww" target="_blank" class="contact-link">
+            <span class="cl-label">GitHub</span>
+            <span class="cl-val">raymondww</span>
+            <span class="cl-arr">↗</span>
+          </a>
+          <a href="/resume.pdf" class="contact-link">
+            <span class="cl-label">Resume</span>
+            <span class="cl-val">Download PDF</span>
+            <span class="cl-arr">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+      <footer class="site-footer">
+    <span>© 2026 Wenrui (Raymond) Wang</span>
+    <span>Built with HTML · FastAPI · GitHub</span>
+  </footer>
+</div>
 
 </div><!-- end .main -->
-
-<footer class="site-footer">
-  <span>© 2026 Wenrui (Raymond) Wang</span>
-  <span>Built with HTML · FastAPI · <a href="https://github.com/raymondww">GitHub</a></span>
-</footer>
 
 <script>
 // ─── Active TOC on scroll ───
