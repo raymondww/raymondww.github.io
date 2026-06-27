@@ -197,15 +197,6 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 1.5rem;
 }
 
-.sidebar-contacts a {
-  font-size: 11.5px;
-  color: var(--text-2);
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  transition: color 0.15s;
-}
-
 .sidebar-contacts a:hover { color: var(--accent); }
 
 /* skills pills in sidebar */
@@ -773,6 +764,60 @@ a { color: inherit; text-decoration: none; }
   .about-body, .contact-body { grid-template-columns: 1fr; gap: 2rem; }
   .site-footer { margin-left: 0; padding: 1.25rem 1.5rem; flex-direction: column; gap: 0.5rem; }
 }
+/* ─── SKILLS GRID ─── */
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+
+.skill-row:first-child { border-top: 1px solid var(--border); }
+
+.skill-key {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--text-3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.skill-val {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+/* ─── VIDEO WRAP ─── */
+.video-wrap {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+
+.video-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+video {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  max-height: 480px;
+  background: #000;
+}
+
 </style>
 </head>
 <body>
@@ -782,7 +827,7 @@ a { color: inherit; text-decoration: none; }
   <div class="avatar">R</div>
 
   <div class="sidebar-name">Raymond Wang</div>
-  <div class="sidebar-role">ML Engineer &amp; Data Scientist</div>
+  <div class="sidebar-role">Data Scientist &amp; ML Engineer</div>
   <div class="sidebar-loc">Vancouver, BC</div>
 
   <div class="avail-pill">
@@ -790,29 +835,17 @@ a { color: inherit; text-decoration: none; }
     Open to opportunities
   </div>
 
-  <a href="/resume.pdf" class="resume-btn">↓ Download Resume</a>
+  <a href="resume.pdf" class="resume-btn">↓ Download Resume</a>
 
   <div class="toc-label">On this page</div>
   <ul class="toc">
-    <li><a href="#intro"    class="toc-link"><span class="n">01</span>👤 Introduction</a></li>
-    <li><a href="#recent"   class="toc-link"><span class="n">02</span>🚀 Recent Activities</a></li>
-    <li><a href="#rag"      class="toc-link"><span class="n">03</span>🔍 RAG Engine</a></li>
-    <li><a href="#cv"       class="toc-link"><span class="n">04</span>🐄 Computer Vision</a></li>
-    <li><a href="#industry" class="toc-link"><span class="n">05</span>🏢 Industry Work</a></li>
-    <li><a href="#contact"  class="toc-link"><span class="n">06</span>✉️ Contact</a></li>
+    <li><a href="#intro"     class="toc-link"><span class="n">01</span>Introduction</a></li>
+    <li><a href="#recent"    class="toc-link"><span class="n">02</span>Recent Activities</a></li>
+    <li><a href="#skills"    class="toc-link"><span class="n">03</span>Technical Skills</a></li>
+    <li><a href="#projects"  class="toc-link"><span class="n">04</span>Projects</a></li>
+    <li><a href="#hackathon" class="toc-link"><span class="n">05</span>Hackathon Demo</a></li>
+    <li><a href="#contact"   class="toc-link"><span class="n">06</span>Contact</a></li>
   </ul>
-
-  <div class="sidebar-contact-label">Contact</div>
-  <div class="sidebar-contacts">
-    <a href="mailto:raymond.w.wang@hotmail.com">✉ raymond.w.wang@hotmail.com</a>
-    <a href="https://github.com/raymondww" target="_blank">⌥ github.com/raymondww</a>
-    <a href="https://linkedin.com/in/raymondwwang" target="_blank">⌥ linkedin.com/in/raymondwwang</a>
-  </div>
-
-  <div class="sidebar-skills-label">Skills</div>
-  <div class="skills-pills">
-    <span>Python</span><span>PyTorch</span><span>SQL</span>
-    <span>RAG</span><span>R</span><span>ML</span>
   </div>
 </aside>
 
@@ -822,15 +855,17 @@ a { color: inherit; text-decoration: none; }
 
     <!-- HERO / INTRO -->
     <div class="hero fade-in" id="intro">
-      <div class="hero-eyebrow">ML Engineer &amp; Data Scientist</div>
-      <h1>ML Engineer<br><em>&amp; Data Scientist.</em></h1>
-      <div class="hero-sub-title">MDS · UBC | BCom IT · Toronto Metropolitan University | MITx MicroMasters · Statistics &amp; Data Science</div>
+      <div class="hero-eyebrow">Data Scientist &amp; ML Engineer</div>
+      <h1>Data Scientist<br><em>&amp; ML Engineer.</em></h1>
+      <div class="hero-sub-title" style="margin-bottom:0">MDS · UBC &nbsp;|&nbsp; BCom BTM · Toronto Metropolitan University (formerly Ryerson)</div>
+      <div class="hero-sub-title">MicroMasters · Statistics &amp; Data Science · MIT Open Learning</div>
       <p class="hero-desc">
-        I build <strong>intelligent search systems, computer vision pipelines, and applied ML tools</strong>
-        that solve real problems at scale. From RAG search engines with BM25 and semantic retrieval,
-        to multi-object tracking systems for livestock monitoring — I ship end-to-end ML that works.
-        Currently completing a <strong>Master of Data Science at UBC</strong>, graduating June 2026.
-        Previously 3 years as a Data Scientist at <strong>JLL Technologies</strong>.
+      <p class="hero-desc">
+        Data Scientist with <strong>3+ years of industry experience</strong> building production ML systems —
+        LLM pipelines, propensity scoring, applied NLP, and computer vision — at JLL and UBC.
+        Comfortable across the full stack from <strong>data ingestion and HPC-distributed model training</strong>
+        to business-facing deployment. Currently building a <strong>RAG search engine from scratch</strong>
+        and completing a Master of Data Science at UBC, graduating June 2026.
       </p>
       <div class="hero-btns">
         <a href="#rag" class="btn btn-primary">View Projects →</a>
@@ -838,9 +873,10 @@ a { color: inherit; text-decoration: none; }
         <a href="mailto:raymond.w.wang@hotmail.com" class="btn btn-ghost">Get in Touch</a>
       </div>
       <div class="hero-jump-links">
-        <a href="#rag">→ RAG Search Engine</a>
-        <a href="#cv">→ Computer Vision</a>
-        <a href="#industry">→ Industry Work</a>
+        <a href="#projects">→ RAG Search Engine</a>
+        <a href="#projects">→ MooVision</a>
+        <a href="#hackathon">→ Hackathon Demo</a>
+        <a href="#skills">→ Technical Skills</a>
       </div>
     </div>
 
@@ -853,42 +889,72 @@ a { color: inherit; text-decoration: none; }
           <div class="activity-icon">🎓</div>
           <div class="activity-body">
             <p><strong>Graduating June 2026 —</strong> Completing the Master of Data Science at UBC.
-            Capstone project MooVision delivered a full multi-object tracking and temporal behavior
-            classification pipeline for dairy calf welfare monitoring.</p>
+            Capstone project MooVision fine-tuned YOLO on 1,100 annotated clips across 8 experimental splits,
+            achieving 0.73 average temporal IoU vs 0.70 baseline — full pipeline from 300GB of raw barn footage
+            to automated evaluation reports on SLURM HPC.</p>
           </div>
         </div>
         <div class="activity-item">
           <div class="activity-icon">🔍</div>
           <div class="activity-body">
-            <p><strong>RAG Engine Live Demo —</strong> Built a full-stack retrieval-augmented generation
-            search engine from scratch with BM25, inverted index, TF-IDF scoring, and semantic vector
-            search. Live demo searches 5,000 movies in real time — try it below in the projects section.</p>
-          </div>
-        </div>
-        <div class="activity-item">
-          <div class="activity-icon">🚗</div>
-          <div class="activity-body">
-            <p><strong>Exploring AV &amp; Robotics Roles —</strong> Actively researching opportunities
-            in autonomous vehicles, robotics perception, and spatial AI — areas where my CV background
-            and temporal modelling experience are directly applicable.</p>
+            <p><strong>RAG Engine Live Demo —</strong> Building a full-stack retrieval-augmented generation
+            search engine from scratch — BM25, inverted index, TF-IDF scoring, and dense semantic vector search.
+            Live demo searches 5,000 movies in real time via a FastAPI backend deployed on Render.</p>
           </div>
         </div>
         <div class="activity-item">
           <div class="activity-icon">🤖</div>
           <div class="activity-body">
-            <p><strong>Local LLM Agent —</strong> Built an English → Chinese translation CLI agent
-            using Ollama with a local Gemma 4 model, designed to preserve functional grammar nuance
-            and register for Chinese speakers learning academic English.</p>
+            <p><strong>LLM Application Development —</strong> Exploring LLM application development including
+            a local English-to-Chinese translation agent using Ollama with Gemma, and a GPT clone built from scratch
+            to deepen understanding of transformer architecture and training dynamics.</p>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-icon">💼</div>
+          <div class="activity-body">
+            <p><strong>Actively seeking DS / ML roles —</strong> Open to data science and ML engineering
+            positions in Canada, with particular interest in roles involving end-to-end pipeline ownership,
+            applied NLP, and forecasting at scale.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RAG ENGINE -->
-    <section class="section fade-in" id="rag">
-      <div class="sec-num">03</div>
-      <h2>🔍 RAG Search Engine</h2>
+    <!-- SKILLS -->
+    <section class="section fade-in" id="skills">
+      <div class="sec-num">02.5</div>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <div class="skill-key">Languages</div>
+          <div class="skill-val">Python, R, SQL</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-key">ML / CV</div>
+          <div class="skill-val">PyTorch, YOLO (Ultralytics), OpenCV, scikit-learn, Hugging Face, LLM APIs</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-key">Data &amp; Cloud</div>
+          <div class="skill-val">Apache Airflow, Spark, AWS S3, Azure, Alibaba Cloud; PostgreSQL, MySQL, MongoDB, PolarDB</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-key">Infrastructure</div>
+          <div class="skill-val">Docker, Git, SLURM, HPC distributed training</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-key">Visualisation</div>
+          <div class="skill-val">Tableau, Power BI, Quarto, MkDocs</div>
+        </div>
+      </div>
+    </section>
 
+    <!-- PROJECTS -->
+    <section class="section fade-in" id="projects">
+      <div class="sec-num">03</div>
+      <h2>Projects</h2>
+
+      <!-- RAG ENGINE -->
       <div class="project-card featured">
         <div class="card-top">
           <div class="card-badges">
@@ -900,11 +966,11 @@ a { color: inherit; text-decoration: none; }
         <div class="card-title">RAG Search Engine</div>
         <div class="card-sub">Full-Stack NLP · BM25 · Semantic Search · FastAPI</div>
         <p class="card-desc">
-          Built a retrieval-augmented generation search engine from scratch, implementing
+          Built a retrieval-augmented generation search engine from scratch — implementing
           <strong>BM25 keyword ranking</strong> with stemming and length normalization,
           an inverted index for fast lookup, <strong>TF-IDF scoring</strong>, and dense
-          semantic vector search. The full pipeline is exposed via a FastAPI backend
-          and supports real-time querying at scale.
+          semantic vector search. Full pipeline exposed via a <strong>FastAPI</strong> backend
+          and deployed on Render with real-time querying at scale.
         </p>
         <div class="card-tags">
           <span class="tag">BM25</span>
@@ -938,126 +1004,106 @@ a { color: inherit; text-decoration: none; }
         </div>
       </div>
 
-      <div class="more-coming">More search &amp; retrieval projects in progress — vector DBs, RAG pipelines, and hybrid rankers under active development.</div>
+      <!-- MOOVISION -->
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-badges">
+            <span class="badge b-done">Complete · Capstone · UBC 2026</span>
+          </div>
+          <div class="card-num">03</div>
+        </div>
+        <div class="card-title">MooVision</div>
+        <div class="card-sub">Computer Vision · YOLO Fine-tuning · Seq-NMS · HPC / SLURM</div>
+        <p class="card-desc">
+          Automated dairy calf cross-sucking behavior detection system built as UBC MDS Capstone
+          in partnership with the <strong>UBC Animal Welfare Program</strong>. Fine-tuned
+          <strong>YOLO</strong> on 1,100 annotated clips across 8 experimental splits
+          (random, time-based, pen-based, period-based) — achieving
+          <strong>0.73 average temporal IoU vs 0.70 baseline</strong>, indicating accurate event
+          localisation in a naturalistic low-prevalence detection setting.
+          Engineered the full pipeline from <strong>300GB of raw barn footage</strong> to automated
+          evaluation reports: OpenCV clipping, proximity-based baseline, Seq-NMS temporal linking,
+          and a Makefile workflow integrating preprocessing, SLURM-parallelised HPC training,
+          inference, and Quarto report generation. Evaluated on <strong>F2 score</strong>
+          to prioritise recall — missing a welfare event is costlier than a false alarm.
+        </p>
+        <div class="card-tags">
+          <span class="tag">YOLO</span>
+          <span class="tag">Seq-NMS</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">SLURM / HPC</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Quarto</span>
+          <span class="tag">Python</span>
+          <span class="tag">F2 Metric</span>
+          <span class="tag">Animal Welfare</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/UBC-AWP/mooVision" target="_blank" class="card-link">GitHub →</a>
+        </div>
+      </div>
     </section>
 
-    <!-- COMPUTER VISION -->
-    <section class="section fade-in" id="cv">
+    <!-- HACKATHON DEMO -->
+    <section class="section fade-in" id="hackathon">
       <div class="sec-num">04</div>
-      <h2>🐄 Computer Vision</h2>
+      <h2>Hackathon Demo</h2>
 
       <div class="project-card">
         <div class="card-top">
           <div class="card-badges">
-            <span class="badge b-done">Capstone · UBC 2026</span>
+            <span class="badge b-done">Complete · JLL Internal</span>
           </div>
-          <div class="card-num">02</div>
-        </div>
-        <div class="card-title">MooVision</div>
-        <div class="card-sub">Computer Vision · Multi-Object Tracking · Temporal Classification</div>
-        <p class="card-desc">
-          Real-time dairy calf behavior detection system built as UBC MDS Capstone.
-          Uses <strong>YOLOv8</strong> for per-frame object detection, <strong>ByteTrack</strong>
-          for multi-object tracking across frames, and <strong>LSTM</strong> for temporal behavior
-          classification. Dockerized pipeline with live video feed ingestion — evaluated on F2 score
-          for precision livestock farming and automated welfare monitoring.
-        </p>
-        <div class="card-tags">
-          <span class="tag">YOLO</span>
-          <span class="tag">ByteTrack</span>
-          <span class="tag">LSTM</span>
-          <span class="tag">PyTorch</span>
-          <span class="tag">Docker</span>
-          <span class="tag">OpenCV</span>
-          <span class="tag">Python</span>
-          <span class="tag">Computer Vision</span>
-        </div>
-        <div class="card-links">
-          <a href="https://github.com/raymondww" target="_blank" class="card-link">GitHub →</a>
-        </div>
-      </div>
-
-      <div class="more-coming">Street-view CV work and additional perception projects documented in Industry Work below.</div>
-    </section>
-
-    <!-- INDUSTRY WORK -->
-    <section class="section fade-in" id="industry">
-      <div class="sec-num">05</div>
-      <h2>🏢 Industry Work</h2>
-
-      <div class="project-card">
-        <div class="card-top">
-          <div class="card-badges"><span class="badge b-done">Complete · JLL</span></div>
           <div class="card-num">03</div>
         </div>
-        <div class="card-title">Vacancy Anxiety Index</div>
-        <div class="card-sub">Propensity Scoring · Recommendation System · Commercial Real Estate</div>
+        <div class="card-title">GPT-Powered Web Data Extraction Platform</div>
+        <div class="card-sub">LLM · Flask · Selenium · Runtime Code Generation · Azure</div>
         <p class="card-desc">
-          Built a propensity scoring model and lead recommendation system during tenure at JLL,
-          modelling tenant anxiety around commercial vacancy across Guangzhou submarkets.
-          Combines feature engineering with interpretable scoring to surface at-risk tenants
-          for proactive outreach — reducing manual analyst time significantly.
-        </p>
-        <div class="card-tags">
-          <span class="tag">Propensity Scoring</span>
-          <span class="tag">Scikit-learn</span>
-          <span class="tag">Feature Engineering</span>
-          <span class="tag">Python</span>
-          <span class="tag">SQL</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-top">
-          <div class="card-badges"><span class="badge b-done">Complete · JLL</span></div>
-          <div class="card-num">04</div>
-        </div>
-        <div class="card-title">睿见数据 — News Intelligence Platform</div>
-        <div class="card-sub">LLM Pipelines · OCR · Chinese NLP · Airflow</div>
-        <p class="card-desc">
-          LLM-powered news intelligence platform built internally at JLL under the brand 睿见数据
-          (Ruijian Shuju). OCR scraping pipeline for structured extraction from unstructured Chinese-language
-          media sources — using <strong>GPT-3.5</strong> with custom prompt chains for entity extraction,
-          sentiment, and summarization. Orchestrated with Airflow on Alibaba Cloud with PolarDB storage.
+          Built at an internal JLL hackathon following the public release of GPT-3.5.
+          A Flask web platform that lets non-technical analysts extract structured data
+          from <em>any</em> website — no code required. Under the hood: <strong>Selenium</strong>
+          renders dynamic JS pages, <strong>BeautifulSoup</strong> parses the loaded HTML,
+          and <strong>GPT-3.5 on Azure</strong> generates Python extraction code at runtime
+          using <code>exec()</code> — inferring the page structure from user-provided sample values.
+          Eliminated hours of manual data collection per analyst per week.
         </p>
         <div class="card-tags">
           <span class="tag">GPT-3.5</span>
-          <span class="tag">OCR</span>
-          <span class="tag">LLM Pipelines</span>
-          <span class="tag">Airflow</span>
-          <span class="tag">Alibaba Cloud</span>
-          <span class="tag">PolarDB</span>
-          <span class="tag">Jieba NLP</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-top">
-          <div class="card-badges"><span class="badge b-done">Complete · JLL</span></div>
-          <div class="card-num">05</div>
-        </div>
-        <div class="card-title">Street-View Real Estate CV Models</div>
-        <div class="card-sub">Computer Vision · OCR · Street-View Imagery · Property Analytics</div>
-        <p class="card-desc">
-          Led development of automated CV models extracting property attributes and signage data
-          from street-level imagery at scale across JLL's Guangzhou commercial portfolio.
-          Combined OCR pipelines with object classification to reduce manual data collection time
-          by 60%+ — enabling faster vacancy and absorption rate reporting.
-        </p>
-        <div class="card-tags">
-          <span class="tag">Computer Vision</span>
-          <span class="tag">OCR</span>
-          <span class="tag">OpenCV</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Selenium</span>
+          <span class="tag">BeautifulSoup</span>
+          <span class="tag">Azure OpenAI</span>
+          <span class="tag">Runtime Code Generation</span>
           <span class="tag">Python</span>
-          <span class="tag">Street-View</span>
+        </div>
+
+        <!-- VIDEO EMBED -->
+        <div class="video-wrap">
+          <div class="video-label">Demo Recording</div>
+          <video
+            controls
+            preload="metadata"
+            poster=""
+            style="width:100%;border-radius:4px;background:#000;display:block;"
+          >
+            <source src="hackathon_demo.mp4" type="video/mp4">
+            <p style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);padding:1rem;">
+              Your browser does not support HTML5 video.
+              <a href="hackathon_demo.mp4" style="color:var(--accent);">Download the demo ↓</a>
+            </p>
+          </video>
+          <p class="demo-note" style="margin-top:0.6rem;">
+            Screen recording of the platform extracting structured property data from a live website in real time.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section class="section fade-in" id="contact">
-      <div class="sec-num">06</div>
-      <h2>✉️ Get in Touch</h2>
+      <div class="sec-num">05</div>
+      <h2>Get in Touch</h2>
       <div class="contact-body">
         <div class="contact-prose">
           <p>I'm actively looking for <strong>ML engineering and data science roles</strong> in North America.</p>
@@ -1080,7 +1126,7 @@ a { color: inherit; text-decoration: none; }
             <span class="cl-val">raymondww</span>
             <span class="cl-arr">↗</span>
           </a>
-          <a href="/resume.pdf" class="contact-link">
+          <a href="resume.pdf" class="contact-link">
             <span class="cl-label">Resume</span>
             <span class="cl-val">Download PDF</span>
             <span class="cl-arr">↓</span>
