@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Raymond(Wenrui) Wang",
+    "section": "",
+    "text": "ML Engineer & Data Scientist\n\n\n\nRaymond(Wenrui) Wang\n\n\n\n\nVancouver, BC or Anywhere\n\n\nML Engineer and Data Scientist with 3+ years of industry experience building production LLM systems, GenAI data pipelines, and computer vision models. Shipped a GPT-powered news intelligence platform at scale, a full CV pipeline trained on HPC infrastructure, and a LangGraph-orchestrated multi-agent compliance system. Currently building a RAG search engine with BM25, TF-IDF, and semantic retrieval. Comfortable owning the full loop from data ingestion and model training through to serving and evaluation — actively building toward fine-tuning.\n\n\nView Projects → GitHub ↗ Read the Blog →"
+  },
+  {
+    "objectID": "index.html#recent",
+    "href": "index.html#recent",
+    "title": "Raymond(Wenrui) Wang",
+    "section": "Recent Activities",
+    "text": "Recent Activities\n\n\n01\n\n\n\nAI-Driven KYC Onboarding & Compliance Engine — Architected a three-stage, jurisdiction-aware onboarding pipeline (fraud gate → OCR / face-match / liveness verification → OSINT compliance agent). Built a LangGraph-orchestrated compliance agent screening applicants against a real 7,495-entry OFAC sanctions list with a local LLM producing risk summaries.\n\n\n\n\n\n02\n\n\n\nComputer Vision Researcher, UBC Animal Welfare Program — Fine-tuned YOLO on 1,100 annotated clips across 8 experimental splits to detect cross-sucking behaviour in dairy calves, achieving 0.73 average temporal IoU against a 0.70 baseline — full pipeline from 300GB of raw barn footage to automated evaluation reports on SLURM HPC.\n\n\n\n\n\n03\n\n\n\nRAG Search Engine — Building a full-stack retrieval system from scratch — BM25 keyword ranking, TF-IDF scoring, an inverted index, and semantic search using sentence-transformer embeddings with chunking strategies and hybrid retrieval, served via FastAPI and deployed on Render.\n\n\n\n\n\n04\n\n\n\nActively seeking ML / DS roles — Open to ML engineering and data science positions, with particular interest in roles involving end-to-end pipeline ownership, applied NLP, and forecasting at scale — actively building toward fine-tuning."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Raymond(Wenrui) Wang",
+    "section": "Education",
+    "text": "Education\n\n\n\n\n\n\nMaster of Data Science\n\n\nUniversity of British Columbia\n\n\nAug 2025 – Jun 2026\n\n\n\n\n\n\n\n\n\nMicroMasters: Statistics & Data Science\n\n\nMIT Open Learning\n\n\nMay 2023 – Jan 2025\n\n\n\n\n\n\n\n\n\nBachelor of Commerce: Business Technology Management\n\n\nToronto Metropolitan University (formerly Ryerson University)\n\n\nSep 2016 – Jun 2021"
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Raymond(Wenrui) Wang",
+    "section": "Technical Skills",
+    "text": "Technical Skills\n\n\nLanguages\n\n\nPython, R, SQL, Bash\n\n\n\n\nML & GenAI\n\n\nPyTorch, scikit-learn, LLM APIs, LangChain, LangGraph, YOLO, OpenCV, DeepFace\n\n\n\n\nRAG & Retrieval\n\n\nBM25, TF-IDF, semantic search, vector embeddings, FAISS (in progress)\n\n\n\n\nData Engineering\n\n\nApache Airflow, Spark, ETL pipeline design, REST API scraping, OCR, fuzzy matching / entity resolution\n\n\n\n\nCloud & Infra\n\n\nAWS S3, Azure, Alibaba Cloud, Docker, Git, SLURM, HPC distributed training, streaming APIs, MLflow\n\n\n\n\nVisualisation\n\n\nTableau, Power BI, Quarto, MkDocs"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Raymond(Wenrui) Wang",
+    "section": "Projects",
+    "text": "Projects\n\n\n\nIn Progress\n\n\n\nRAG Search Engine\n\n\nFull-Stack NLP · BM25 · Semantic Search · FastAPI\n\n\nBuilding a full-stack retrieval system from scratch — implementing BM25 keyword ranking, TF-IDF scoring, an inverted index, and semantic search using sentence-transformer embeddings with chunking strategies and hybrid retrieval. Served via a FastAPI backend and deployed on Render.\n\n\nBM25TF-IDFInverted Index Sentence-TransformersHybrid RetrievalFastAPI PythonRender\n\n\nGitHub →\n\n\n\nLive Demo — BM25 Movie Search\n\n\n Search\n\n\n\nEnter a query to search 5,000 movies using BM25 ranking.\n\n\n\n\n\n\n\nComplete\n\n\n\nAI-Driven KYC Onboarding & Compliance Engine\n\n\nLangGraph · OSINT Agent · OCR / Face-Match / Liveness · Config-Driven Routing\n\n\nArchitected a three-stage, jurisdiction-aware onboarding pipeline (behavioral fraud gate → OCR / face-match / liveness verification → OSINT compliance agent) as a single generator function reused, unmodified, by both a live streaming API and a CLI batch script, with zero duplicated business logic. Config-driven country routing adds a new jurisdiction with one JSON entry, no new code branch. Built a LangGraph-orchestrated compliance agent screening applicants against a real 7,495-entry OFAC sanctions list (fuzzy name / DOB matching), live adverse-media and court-record search, with a local LLM (Ollama) producing a LOW / MEDIUM / HIGH risk summary — keeping the sanctions match deterministic and independent of the LLM output to bound hallucination risk in a compliance-critical decision.\n\n\nLangGraphOCRFace Match Liveness DetectionOSINTOFAC Screening OllamaPython\n\n\nDemo Recording\n\n\n\n\n\n\n\n\nComplete · Capstone · UBC 2026\n\n\n\nMooVision\n\n\nComputer Vision · YOLO Fine-tuning · Seq-NMS · HPC / SLURM\n\n\nAutomated dairy calf cross-sucking behavior detection system built as UBC MDS Capstone in partnership with the UBC Animal Welfare Program. Fine-tuned YOLO on 1,100 annotated clips across 8 experimental splits — achieving 0.73 average temporal IoU vs 0.70 baseline. Engineered the full pipeline from 300GB of raw barn footage to automated evaluation reports: OpenCV clipping, proximity-based baseline, Seq-NMS temporal linking, and a Makefile workflow integrating preprocessing, SLURM-parallelised HPC training, inference, and Quarto report generation.\n\n\nYOLOSeq-NMSOpenCV PyTorchSLURM / HPCDocker QuartoPythonF2 MetricAnimal Welfare\n\n\nDemo Recording\n\n\n\n\n\nGitHub →\n\n\n\nHackathon Demo\n\n\n\nComplete · JLL Internal\n\n\n\nGPT-Powered Web Data Extraction Platform\n\n\nLLM · Flask · Selenium · Runtime Code Generation · Azure\n\n\nBuilt at an internal JLL hackathon following the public release of GPT-3.5. A Flask web platform that lets non-technical analysts extract structured data from any website — no code required. Under the hood: Selenium renders dynamic JS pages, BeautifulSoup parses the loaded HTML, and GPT-3.5 on Azure generates Python extraction code at runtime using exec() — inferring the page structure from user-provided sample values.\n\n\nGPT-3.5FlaskSelenium BeautifulSoupAzure OpenAIRuntime Code GenerationPython\n\n\nDemo Recording"
+  },
+  {
+    "objectID": "index.html#hackathon",
+    "href": "index.html#hackathon",
+    "title": "Raymond(Wenrui) Wang",
+    "section": "Hackathon Demo",
+    "text": "Hackathon Demo\n\n\n\nComplete · JLL Internal\n\n\n\nGPT-Powered Web Data Extraction Platform\n\n\nLLM · Flask · Selenium · Runtime Code Generation · Azure\n\n\nBuilt at an internal JLL hackathon following the public release of GPT-3.5. A Flask web platform that lets non-technical analysts extract structured data from any website — no code required. Under the hood: Selenium renders dynamic JS pages, BeautifulSoup parses the loaded HTML, and GPT-3.5 on Azure generates Python extraction code at runtime using exec() — inferring the page structure from user-provided sample values.\n\n\nGPT-3.5FlaskSelenium BeautifulSoupAzure OpenAIRuntime Code GenerationPython\n\n\nDemo Recording"
+  },
+  {
+    "objectID": "blog/posts/cartpole-rl/index.html",
+    "href": "blog/posts/cartpole-rl/index.html",
+    "title": "CartPole: From-Scratch Q-Learning vs. PPO",
+    "section": "",
+    "text": "CartPole is the “hello world” of reinforcement learning: balance a pole on a moving cart by pushing left or right at every timestep. Episodes end when the pole tips past ~12° or the cart drifts too far off center, and a “solved” policy holds the pole up for the full 500-step cap. It’s simple enough to implement from scratch in an afternoon, which makes it a good place to actually feel the difference between a hand-rolled tabular method and a library-backed policy gradient method, instead of just reading about it.\nI built three things: a random-action baseline, a Q-learning agent built entirely from scratch (no Stable Baselines3, no neural net), and a PPO agent using Stable Baselines3."
+  },
+  {
+    "objectID": "blog/posts/cartpole-rl/index.html#baseline-acting-randomly",
+    "href": "blog/posts/cartpole-rl/index.html#baseline-acting-randomly",
+    "title": "CartPole: From-Scratch Q-Learning vs. PPO",
+    "section": "Baseline: acting randomly",
+    "text": "Baseline: acting randomly\nBefore training anything, it’s worth watching an agent that just samples random actions every step:\nfor episode in range(20):\n    obs, info = env.reset()\n    total_reward = 0\n    terminated = truncated = False\n\n    while not (terminated or truncated):\n        action = env.action_space.sample()  # random: 0 = push left, 1 = push right\n        obs, reward, terminated, truncated, info = env.step(action)\n        total_reward += reward\nThe pole falls almost immediately, every time. [TODO: fill in the average survival time you saw] This is the “before” picture — anything both trained agents do afterward is relative to this floor."
+  },
+  {
+    "objectID": "blog/posts/cartpole-rl/index.html#approach-1-q-learning-built-from-scratch",
+    "href": "blog/posts/cartpole-rl/index.html#approach-1-q-learning-built-from-scratch",
+    "title": "CartPole: From-Scratch Q-Learning vs. PPO",
+    "section": "Approach 1: Q-learning, built from scratch",
+    "text": "Approach 1: Q-learning, built from scratch\nCartPole’s state — cart position, cart velocity, pole angle, pole angular velocity — is continuous, and a Q-table needs discrete states to index into. So the first design decision is how to bucket four continuous variables into a finite table:\nBINS = (3, 3, 12, 12)\nLOW = [-2.4, -3, -0.21, -3]\nHIGH = [2.4, 3, 0.21, 3]\n\ndef discretize(obs):\n    return tuple(int(np.digitize(obs[i], bin_edges[i])) for i in range(4))\nThe bin counts aren’t uniform on purpose — cart position and velocity get only 3 bins each, while pole angle and angular velocity get 12. That’s the part of the state that actually determines whether the pole is about to fall, so it needs finer resolution; the cart’s exact position matters much less to the immediate decision of which way to push.\nFrom there it’s standard epsilon-greedy Q-learning: explore randomly with probability epsilon, otherwise take the best known action, and update the table with a Bellman backup after every step.\ndef q_update(state, action, reward, next_state, terminated):\n    best_next_value = np.max(q_table[next_state])\n    td_target = reward + gamma * best_next_value * (not terminated)\n    td_delta = td_target - q_table[state][action]\n    q_table[state][action] += alpha * td_delta\nHyperparameters: learning rate alpha = 0.01, discount gamma = 0.99, epsilon decaying from 1.0 down to a floor of 0.05 at a rate of 0.9995 per episode, over 30,000 episodes. The whole thing — training loop, discretization, Bellman update — is under 90 lines of NumPy, and the trained table is small enough to just pickle and load back for evaluation."
+  },
+  {
+    "objectID": "blog/posts/cartpole-rl/index.html#approach-2-ppo-via-stable-baselines3",
+    "href": "blog/posts/cartpole-rl/index.html#approach-2-ppo-via-stable-baselines3",
+    "title": "CartPole: From-Scratch Q-Learning vs. PPO",
+    "section": "Approach 2: PPO, via Stable Baselines3",
+    "text": "Approach 2: PPO, via Stable Baselines3\nFor comparison, the same environment trained with Stable Baselines3’s PPO implementation is almost insultingly short:\nenv = gym.make(\"CartPole-v1\")\n\nmodel = PPO(\"MlpPolicy\", env, verbose=1)\nmodel.learn(total_timesteps=50_000)\nmodel.save(\"cartpole_ppo\")\nNo discretization step at all — PPO’s neural network policy consumes the continuous state directly and learns its own internal representation of what matters, instead of me hand-picking bin boundaries."
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "My brain dump: ML, reinforcement learning, data science, and whatever I’m tinkering with\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCartPole: From-Scratch Q-Learning vs. PPO\n\n\n\nreinforcement-learning\n\npython\n\n\n\nSolving CartPole-v1, a hand-rolled discretized Q-learning agent and PPO via Stable Baselines3.\n\n\n\n\n\nJul 27, 2026\n\n3 min\n\n\n\n\nNo matching items"
+  }
+]

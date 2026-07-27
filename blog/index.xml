@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Raymond(Wenrui) Wang</title>
+<link>https://raymondww.github.io/blog/</link>
+<atom:link href="https://raymondww.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
+<description>Data Scientist &amp; ML Engineer — projects, writing, and notes.</description>
+<generator>quarto-1.10.18</generator>
+<lastBuildDate>Mon, 27 Jul 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>CartPole: From-Scratch Q-Learning vs. PPO</title>
+  <link>https://raymondww.github.io/blog/posts/cartpole-rl/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>CartPole is the “hello world” of reinforcement learning: balance a pole on a moving cart by pushing left or right at every timestep. Episodes end when the pole tips past ~12° or the cart drifts too far off center, and a “solved” policy holds the pole up for the full 500-step cap. It’s simple enough to implement from scratch in an afternoon, which makes it a good place to actually feel the difference between a hand-rolled tabular method and a library-backed policy gradient method, instead of just reading about it.</p>
+<p>I built three things: a random-action baseline, a Q-learning agent built entirely from scratch (no Stable Baselines3, no neural net), and a PPO agent using Stable Baselines3.</p>
+<section id="baseline-acting-randomly" class="level2">
+<h2 data-anchor-id="baseline-acting-randomly">Baseline: acting randomly</h2>
+<p>Before training anything, it’s worth watching an agent that just samples random actions every step:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> episode <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>):</span>
+<span id="cb1-2">    obs, info <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> env.reset()</span>
+<span id="cb1-3">    total_reward <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb1-4">    terminated <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> truncated <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span>
+<span id="cb1-5"></span>
+<span id="cb1-6">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">while</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> (terminated <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">or</span> truncated):</span>
+<span id="cb1-7">        action <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> env.action_space.sample()  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># random: 0 = push left, 1 = push right</span></span>
+<span id="cb1-8">        obs, reward, terminated, truncated, info <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> env.step(action)</span>
+<span id="cb1-9">        total_reward <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> reward</span></code></pre></div></div>
+<p>The pole falls almost immediately, every time. <code>[TODO: fill in the average survival time you saw]</code> This is the “before” picture — anything both trained agents do afterward is relative to this floor.</p>
+</section>
+<section id="approach-1-q-learning-built-from-scratch" class="level2">
+<h2 data-anchor-id="approach-1-q-learning-built-from-scratch">Approach 1: Q-learning, built from scratch</h2>
+<p>CartPole’s state — cart position, cart velocity, pole angle, pole angular velocity — is continuous, and a Q-table needs discrete states to index into. So the first design decision is how to bucket four continuous variables into a finite table:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">BINS <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>)</span>
+<span id="cb2-2">LOW <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.4</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.21</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>]</span>
+<span id="cb2-3">HIGH <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.4</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.21</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>]</span>
+<span id="cb2-4"></span>
+<span id="cb2-5"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> discretize(obs):</span>
+<span id="cb2-6">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">tuple</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>(np.digitize(obs[i], bin_edges[i])) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>))</span></code></pre></div></div>
+<p>The bin counts aren’t uniform on purpose — cart position and velocity get only 3 bins each, while pole angle and angular velocity get 12. That’s the part of the state that actually determines whether the pole is about to fall, so it needs finer resolution; the cart’s exact position matters much less to the immediate decision of which way to push.</p>
+<p>From there it’s standard epsilon-greedy Q-learning: explore randomly with probability epsilon, otherwise take the best known action, and update the table with a Bellman backup after every step.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> q_update(state, action, reward, next_state, terminated):</span>
+<span id="cb3-2">    best_next_value <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">max</span>(q_table[next_state])</span>
+<span id="cb3-3">    td_target <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> reward <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> gamma <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> best_next_value <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> terminated)</span>
+<span id="cb3-4">    td_delta <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> td_target <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> q_table[state][action]</span>
+<span id="cb3-5">    q_table[state][action] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> alpha <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> td_delta</span></code></pre></div></div>
+<p>Hyperparameters: learning rate <code>alpha = 0.01</code>, discount <code>gamma = 0.99</code>, epsilon decaying from <code>1.0</code> down to a floor of <code>0.05</code> at a rate of <code>0.9995</code> per episode, over 30,000 episodes. The whole thing — training loop, discretization, Bellman update — is under 90 lines of NumPy, and the trained table is small enough to just pickle and load back for evaluation.</p>
+</section>
+<section id="approach-2-ppo-via-stable-baselines3" class="level2">
+<h2 data-anchor-id="approach-2-ppo-via-stable-baselines3">Approach 2: PPO, via Stable Baselines3</h2>
+<p>For comparison, the same environment trained with Stable Baselines3’s PPO implementation is almost insultingly short:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">env <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> gym.make(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"CartPole-v1"</span>)</span>
+<span id="cb4-2"></span>
+<span id="cb4-3">model <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> PPO(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"MlpPolicy"</span>, env, verbose<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb4-4">model.learn(total_timesteps<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50_000</span>)</span>
+<span id="cb4-5">model.save(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cartpole_ppo"</span>)</span></code></pre></div></div>
+<p>No discretization step at all — PPO’s neural network policy consumes the continuous state directly and learns its own internal representation of what matters, instead of me hand-picking bin boundaries.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>reinforcement-learning</category>
+  <category>python</category>
+  <guid>https://raymondww.github.io/blog/posts/cartpole-rl/</guid>
+  <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://raymondww.github.io/blog/posts/cartpole-rl/cart_pole.gif" medium="image" type="image/gif"/>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="ML Engineer &amp; Data Scientist — projects, writing, and notes.">
+
+<title>Raymond(Wenrui) Wang — ML Engineer &amp; Data Scientist – Raymond(Wenrui) Wang</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-36e4b26e89f6fc7ee440e0c190f0c88f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-96d4df726da96e2038dae0779f611def.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Raymond(Wenrui) Wang</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./resume.pdf"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:raymond.w.wang@hotmail.com"> 
+<span class="menu-text">Email</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/raymondww"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/raymondwwang"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="hero">
+<div class="hero-eyebrow">
+ML Engineer &amp; Data Scientist
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:nowrap;">
+<div style="font-family:'Newsreader',Georgia,serif;font-weight:400;font-size:clamp(2rem, 4vw, 3rem);letter-spacing:-0.01em;color:var(--text);">
+Raymond(Wenrui) Wang
+</div>
+<img src="images/raymondww.png" alt="Raymond Wang" style="width:120px;height:120px;border-radius:8px;object-fit:cover;flex-shrink:0;">
+</div>
+<div class="hero-sub">
+Vancouver, BC or Anywhere
+</div>
+<p class="hero-desc">
+ML Engineer and Data Scientist with 3+ years of industry experience building production LLM systems, GenAI data pipelines, and computer vision models. Shipped a GPT-powered news intelligence platform at scale, a full CV pipeline trained on HPC infrastructure, and a LangGraph-orchestrated multi-agent compliance system. Currently building a RAG search engine with BM25, TF-IDF, and semantic retrieval. Comfortable owning the full loop from data ingestion and model training through to serving and evaluation — actively building toward fine-tuning.
+</p>
+<div class="hero-btns">
+<p><a href="#projects" class="btn-mini btn-mini-primary">View Projects →</a> <a href="https://github.com/raymondww" target="_blank" class="btn-mini btn-mini-ghost">GitHub ↗</a> <a href="blog/index.html" class="btn-mini btn-mini-ghost">Read the Blog →</a></p>
+</div>
+</div>
+<section id="recent" class="level2">
+<h2 data-anchor-id="recent">Recent Activities</h2>
+<div class="activity-item">
+<div class="activity-num">
+01
+</div>
+<div class="activity-body">
+<p>
+<strong>AI-Driven KYC Onboarding &amp; Compliance Engine —</strong> Architected a three-stage, jurisdiction-aware onboarding pipeline (fraud gate → OCR / face-match / liveness verification → OSINT compliance agent). Built a LangGraph-orchestrated compliance agent screening applicants against a real 7,495-entry OFAC sanctions list with a local LLM producing risk summaries.
+</p>
+</div>
+</div>
+<div class="activity-item">
+<div class="activity-num">
+02
+</div>
+<div class="activity-body">
+<p>
+<strong>Computer Vision Researcher, UBC Animal Welfare Program —</strong> Fine-tuned YOLO on 1,100 annotated clips across 8 experimental splits to detect cross-sucking behaviour in dairy calves, achieving 0.73 average temporal IoU against a 0.70 baseline — full pipeline from 300GB of raw barn footage to automated evaluation reports on SLURM HPC.
+</p>
+</div>
+</div>
+<div class="activity-item">
+<div class="activity-num">
+03
+</div>
+<div class="activity-body">
+<p>
+<strong>RAG Search Engine —</strong> Building a full-stack retrieval system from scratch — BM25 keyword ranking, TF-IDF scoring, an inverted index, and semantic search using sentence-transformer embeddings with chunking strategies and hybrid retrieval, served via FastAPI and deployed on Render.
+</p>
+</div>
+</div>
+<div class="activity-item">
+<div class="activity-num">
+04
+</div>
+<div class="activity-body">
+<p>
+<strong>Actively seeking ML / DS roles —</strong> Open to ML engineering and data science positions, with particular interest in roles involving end-to-end pipeline ownership, applied NLP, and forecasting at scale — actively building toward fine-tuning.
+</p>
+</div>
+</div>
+</section>
+<section id="education" class="level2">
+<h2 data-anchor-id="education">Education</h2>
+<div class="edu-item">
+<div class="edu-logo">
+<img src="images/ubc-logo.png" alt="UBC logo">
+</div>
+<div class="edu-body">
+<div class="edu-degree">
+Master of Data Science
+</div>
+<div class="edu-school">
+University of British Columbia
+</div>
+<div class="edu-date">
+Aug 2025 – Jun 2026
+</div>
+</div>
+</div>
+<div class="edu-item">
+<div class="edu-logo">
+<img src="images/mit-logo.png" alt="MIT logo">
+</div>
+<div class="edu-body">
+<div class="edu-degree">
+MicroMasters: Statistics &amp; Data Science
+</div>
+<div class="edu-school">
+MIT Open Learning
+</div>
+<div class="edu-date">
+May 2023 – Jan 2025
+</div>
+</div>
+</div>
+<div class="edu-item">
+<div class="edu-logo">
+<img src="images/tmu-logo.png" alt="TMU logo">
+</div>
+<div class="edu-body">
+<div class="edu-degree">
+Bachelor of Commerce: Business Technology Management
+</div>
+<div class="edu-school">
+Toronto Metropolitan University (formerly Ryerson University)
+</div>
+<div class="edu-date">
+Sep 2016 – Jun 2021
+</div>
+</div>
+</div>
+</section>
+<section id="skills" class="level2">
+<h2 data-anchor-id="skills">Technical Skills</h2>
+<div class="skill-row">
+<div class="skill-key">
+Languages
+</div>
+<div class="skill-val">
+Python, R, SQL, Bash
+</div>
+</div>
+<div class="skill-row">
+<div class="skill-key">
+ML &amp; GenAI
+</div>
+<div class="skill-val">
+PyTorch, scikit-learn, LLM APIs, LangChain, LangGraph, YOLO, OpenCV, DeepFace
+</div>
+</div>
+<div class="skill-row">
+<div class="skill-key">
+RAG &amp; Retrieval
+</div>
+<div class="skill-val">
+BM25, TF-IDF, semantic search, vector embeddings, FAISS (in progress)
+</div>
+</div>
+<div class="skill-row">
+<div class="skill-key">
+Data Engineering
+</div>
+<div class="skill-val">
+Apache Airflow, Spark, ETL pipeline design, REST API scraping, OCR, fuzzy matching / entity resolution
+</div>
+</div>
+<div class="skill-row">
+<div class="skill-key">
+Cloud &amp; Infra
+</div>
+<div class="skill-val">
+AWS S3, Azure, Alibaba Cloud, Docker, Git, SLURM, HPC distributed training, streaming APIs, MLflow
+</div>
+</div>
+<div class="skill-row">
+<div class="skill-key">
+Visualisation
+</div>
+<div class="skill-val">
+Tableau, Power BI, Quarto, MkDocs
+</div>
+</div>
+</section>
+<section id="projects" class="level2">
+<h2 data-anchor-id="projects">Projects</h2>
+<div class="project-card">
+<div class="card-top">
+<div class="card-badges">
+<span class="badge b-wip">In Progress</span>
+</div>
+</div>
+<div class="card-title">
+RAG Search Engine
+</div>
+<div class="card-sub">
+Full-Stack NLP · BM25 · Semantic Search · FastAPI
+</div>
+<p class="card-desc">
+Building a full-stack retrieval system from scratch — implementing <strong>BM25 keyword ranking</strong>, <strong>TF-IDF scoring</strong>, an inverted index, and semantic search using sentence-transformer embeddings with chunking strategies and hybrid retrieval. Served via a <strong>FastAPI</strong> backend and deployed on Render.
+</p>
+<div class="card-tags">
+<p><span class="tag">BM25</span><span class="tag">TF-IDF</span><span class="tag">Inverted Index</span> <span class="tag">Sentence-Transformers</span><span class="tag">Hybrid Retrieval</span><span class="tag">FastAPI</span> <span class="tag">Python</span><span class="tag">Render</span></p>
+</div>
+<div class="card-links">
+<a href="https://github.com/raymondww/rag-search-engine" target="_blank" class="card-link">GitHub →</a>
+</div>
+<div style="margin-top:1.25rem;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;">
+<div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.85rem;">
+Live Demo — BM25 Movie Search
+</div>
+<div style="display:flex;border:1px solid var(--border-2);border-radius:4px;overflow:hidden;margin-bottom:1rem;">
+<p><input type="text" id="search-input" placeholder="Try: animated family, sci-fi space, action heist..." style="flex:1;background:transparent;border:none;outline:none;padding:0.65rem 0.9rem;font-family:'DM Mono',monospace;font-size:12px;color:var(--text);"> <button onclick="runSearch()" style="background:var(--text);border:none;color:var(--bg);padding:0 1rem;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">Search</button></p>
+</div>
+<div id="search-results" style="min-height:40px;">
+<p style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text-3);">
+Enter a query to search 5,000 movies using BM25 ranking.
+</p>
+</div>
+</div>
+</div>
+<div class="project-card">
+<div class="card-top">
+<div class="card-badges">
+<span class="badge b-wip">Complete</span>
+</div>
+</div>
+<div class="card-title">
+AI-Driven KYC Onboarding &amp; Compliance Engine
+</div>
+<div class="card-sub">
+LangGraph · OSINT Agent · OCR / Face-Match / Liveness · Config-Driven Routing
+</div>
+<p class="card-desc">
+Architected a three-stage, jurisdiction-aware onboarding pipeline (behavioral fraud gate → OCR / face-match / liveness verification → OSINT compliance agent) as a single generator function reused, unmodified, by both a live streaming API and a CLI batch script, with zero duplicated business logic. Config-driven country routing adds a new jurisdiction with one JSON entry, no new code branch. Built a <strong>LangGraph-orchestrated</strong> compliance agent screening applicants against a real 7,495-entry OFAC sanctions list (fuzzy name / DOB matching), live adverse-media and court-record search, with a local LLM (Ollama) producing a LOW / MEDIUM / HIGH risk summary — keeping the sanctions match deterministic and independent of the LLM output to bound hallucination risk in a compliance-critical decision.
+</p>
+<div class="card-tags">
+<p><span class="tag">LangGraph</span><span class="tag">OCR</span><span class="tag">Face Match</span> <span class="tag">Liveness Detection</span><span class="tag">OSINT</span><span class="tag">OFAC Screening</span> <span class="tag">Ollama</span><span class="tag">Python</span></p>
+</div>
+<div class="video-label">
+Demo Recording
+</div>
+<video controls="" preload="metadata">
+<source src="videos/kyc_demo.mp4" type="video/mp4">
+</video>
+</div>
+<div class="project-card">
+<div class="card-top">
+<div class="card-badges">
+<span class="badge b-done">Complete · Capstone · UBC 2026</span>
+</div>
+</div>
+<div class="card-title">
+MooVision
+</div>
+<div class="card-sub">
+Computer Vision · YOLO Fine-tuning · Seq-NMS · HPC / SLURM
+</div>
+<p class="card-desc">
+Automated dairy calf cross-sucking behavior detection system built as UBC MDS Capstone in partnership with the <strong>UBC Animal Welfare Program</strong>. Fine-tuned <strong>YOLO</strong> on 1,100 annotated clips across 8 experimental splits — achieving <strong>0.73 average temporal IoU vs 0.70 baseline</strong>. Engineered the full pipeline from <strong>300GB of raw barn footage</strong> to automated evaluation reports: OpenCV clipping, proximity-based baseline, Seq-NMS temporal linking, and a Makefile workflow integrating preprocessing, SLURM-parallelised HPC training, inference, and Quarto report generation.
+</p>
+<div class="card-tags">
+<p><span class="tag">YOLO</span><span class="tag">Seq-NMS</span><span class="tag">OpenCV</span> <span class="tag">PyTorch</span><span class="tag">SLURM / HPC</span><span class="tag">Docker</span> <span class="tag">Quarto</span><span class="tag">Python</span><span class="tag">F2 Metric</span><span class="tag">Animal Welfare</span></p>
+</div>
+<div class="video-label">
+Demo Recording
+</div>
+<video controls="" preload="metadata">
+<source src="videos/moovision_demo.mp4" type="video/mp4">
+</video>
+<div class="card-links" style="margin-top:1rem;">
+<a href="https://github.com/UBC-AWP/mooVision" target="_blank" class="card-link">GitHub →</a>
+</div>
+</div>
+<section id="hackathon" class="level2">
+<h2 data-anchor-id="hackathon">Hackathon Demo</h2>
+<div class="project-card">
+<div class="card-top">
+<div class="card-badges">
+<span class="badge b-done">Complete · JLL Internal</span>
+</div>
+</div>
+<div class="card-title">
+GPT-Powered Web Data Extraction Platform
+</div>
+<div class="card-sub">
+LLM · Flask · Selenium · Runtime Code Generation · Azure
+</div>
+<p class="card-desc">
+Built at an internal JLL hackathon following the public release of GPT-3.5. A Flask web platform that lets non-technical analysts extract structured data from <em>any</em> website — no code required. Under the hood: <strong>Selenium</strong> renders dynamic JS pages, <strong>BeautifulSoup</strong> parses the loaded HTML, and <strong>GPT-3.5 on Azure</strong> generates Python extraction code at runtime using <code>exec()</code> — inferring the page structure from user-provided sample values.
+</p>
+<div class="card-tags">
+<p><span class="tag">GPT-3.5</span><span class="tag">Flask</span><span class="tag">Selenium</span> <span class="tag">BeautifulSoup</span><span class="tag">Azure OpenAI</span><span class="tag">Runtime Code Generation</span><span class="tag">Python</span></p>
+</div>
+<div class="video-label">
+Demo Recording
+</div>
+<video controls="" preload="metadata">
+<source src="videos/hackathon_demo.mp4" type="video/mp4">
+</video>
+</div>
+<script>
+const API_URL = 'https://rag-search-engine-5swz.onrender.com';
+async function runSearch() {
+  const query = document.getElementById('search-input').value.trim();
+  if (!query) return;
+  const resultsEl = document.getElementById('search-results');
+  resultsEl.innerHTML = '<p style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--text-3);">Searching...</p>';
+  try {
+    const res = await fetch(`${API_URL}/search?query=${encodeURIComponent(query)}&limit=5`);
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    if (!data.results || !data.results.length) {
+      resultsEl.innerHTML = '<p style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--text-3);">No results found.</p>';
+      return;
+    }
+    resultsEl.innerHTML = data.results.map((r, i) => `
+      <div style="display:flex;align-items:baseline;gap:1rem;padding:0.4rem 0;border-bottom:1px solid var(--border);">
+        <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-3);min-width:16px;">${i + 1}</span>
+        <span style="flex:1;font-size:13px;color:var(--text);">${r.title}</span>
+        <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-2);">${r.score.toFixed(2)}</span>
+      </div>`).join('');
+  } catch {
+    resultsEl.innerHTML = '<p style="font-family:\'DM Mono\',monospace;font-size:11px;color:#f87171;">Backend offline — deploy to Render and update API_URL.</p>';
+  }
+}
+document.getElementById('search-input')?.addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(); });
+</script>
+
+
+</section></section></main></div>
+
+
+
+
+
+ <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/raymondww\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+ <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Raymond(Wenrui) Wang</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
