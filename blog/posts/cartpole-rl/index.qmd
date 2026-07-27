@@ -1,0 +1,88 @@
+---
+title: "CartPole: From-Scratch Q-Learning vs. PPO"
+description: "Solving CartPole-v1, a hand-rolled discretized Q-learning agent and PPO via Stable Baselines3."
+date: 2026-07-27
+categories: [reinforcement-learning, python]
+image: cart_pole.gif
+---
+
+CartPole is the "hello world" of reinforcement learning: balance a pole on a moving cart by pushing left
+or right at every timestep. Episodes end when the pole tips past ~12° or the cart drifts too far off
+center, and a "solved" policy holds the pole up for the full 500-step cap. It's simple enough to implement
+from scratch in an afternoon, which makes it a good place to actually feel the difference between a
+hand-rolled tabular method and a library-backed policy gradient method, instead of just reading about it.
+
+I built three things: a random-action baseline, a Q-learning agent built entirely from scratch (no
+Stable Baselines3, no neural net), and a PPO agent using Stable Baselines3.
+
+## Baseline: acting randomly
+
+Before training anything, it's worth watching an agent that just samples random actions every step:
+
+```python
+for episode in range(20):
+    obs, info = env.reset()
+    total_reward = 0
+    terminated = truncated = False
+
+    while not (terminated or truncated):
+        action = env.action_space.sample()  # random: 0 = push left, 1 = push right
+        obs, reward, terminated, truncated, info = env.step(action)
+        total_reward += reward
+```
+
+The pole falls almost immediately, every time. `[TODO: fill in the average survival time you saw]` This is
+the "before" picture — anything both trained agents do afterward is relative to this floor.
+
+## Approach 1: Q-learning, built from scratch
+
+CartPole's state — cart position, cart velocity, pole angle, pole angular velocity — is continuous, and a
+Q-table needs discrete states to index into. So the first design decision is how to bucket four continuous
+variables into a finite table:
+
+```python
+BINS = (3, 3, 12, 12)
+LOW = [-2.4, -3, -0.21, -3]
+HIGH = [2.4, 3, 0.21, 3]
+
+def discretize(obs):
+    return tuple(int(np.digitize(obs[i], bin_edges[i])) for i in range(4))
+```
+
+The bin counts aren't uniform on purpose — cart position and velocity get only 3 bins each, while pole
+angle and angular velocity get 12. That's the part of the state that actually determines whether the pole
+is about to fall, so it needs finer resolution; the cart's exact position matters much less to the
+immediate decision of which way to push.
+
+From there it's standard epsilon-greedy Q-learning: explore randomly with probability epsilon, otherwise
+take the best known action, and update the table with a Bellman backup after every step.
+
+```python
+def q_update(state, action, reward, next_state, terminated):
+    best_next_value = np.max(q_table[next_state])
+    td_target = reward + gamma * best_next_value * (not terminated)
+    td_delta = td_target - q_table[state][action]
+    q_table[state][action] += alpha * td_delta
+```
+
+Hyperparameters: learning rate `alpha = 0.01`, discount `gamma = 0.99`, epsilon decaying from `1.0` down to
+a floor of `0.05` at a rate of `0.9995` per episode, over 30,000 episodes. The whole thing — training loop,
+discretization, Bellman update — is under 90 lines of NumPy, and the trained table is small enough to just
+pickle and load back for evaluation.
+
+## Approach 2: PPO, via Stable Baselines3
+
+For comparison, the same environment trained with Stable Baselines3's PPO implementation is almost
+insultingly short:
+
+```python
+env = gym.make("CartPole-v1")
+
+model = PPO("MlpPolicy", env, verbose=1)
+model.learn(total_timesteps=50_000)
+model.save("cartpole_ppo")
+```
+
+No discretization step at all — PPO's neural network policy consumes the continuous state directly and
+learns its own internal representation of what matters, instead of me hand-picking bin boundaries.
+

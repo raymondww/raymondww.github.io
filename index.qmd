@@ -1,0 +1,211 @@
+---
+pagetitle: "Raymond(Wenrui) Wang — ML Engineer & Data Scientist"
+description-meta: "ML Engineer & Data Scientist — projects, writing, and notes."
+---
+
+<div class="hero">
+<div class="hero-eyebrow">ML Engineer &amp; Data Scientist</div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:nowrap;"><div style="font-family:'Newsreader',Georgia,serif;font-weight:400;font-size:clamp(2rem, 4vw, 3rem);letter-spacing:-0.01em;color:var(--text);">Raymond(Wenrui) Wang</div><img src="images/raymondww.png" alt="Raymond Wang" style="width:120px;height:120px;border-radius:8px;object-fit:cover;flex-shrink:0;" /></div>
+<div class="hero-sub">Vancouver, BC or Anywhere</div>
+<p class="hero-desc">
+ML Engineer and Data Scientist with 3+ years of industry experience building production
+LLM systems, GenAI data pipelines, and computer vision models. Shipped a GPT-powered news intelligence
+platform at scale, a full CV pipeline trained on HPC infrastructure, and a LangGraph-orchestrated
+multi-agent compliance system. Currently building a RAG search engine with BM25, TF-IDF, and
+semantic retrieval. Comfortable owning the full loop from data ingestion and model training through to
+serving and evaluation — actively building toward fine-tuning.
+</p>
+<div class="hero-btns">
+  <a href="#projects" class="btn-mini btn-mini-primary">View Projects →</a>
+  <a href="https://github.com/raymondww" target="_blank" class="btn-mini btn-mini-ghost">GitHub ↗</a>
+  <a href="blog/index.html" class="btn-mini btn-mini-ghost">Read the Blog →</a>
+</div>
+</div>
+
+## Recent Activities {#recent}
+
+<div class="activity-item">
+<div class="activity-num">01</div>
+<div class="activity-body"><p><strong>AI-Driven KYC Onboarding &amp; Compliance Engine —</strong> Architected a
+three-stage, jurisdiction-aware onboarding pipeline (fraud gate → OCR / face-match / liveness verification →
+OSINT compliance agent). Built a LangGraph-orchestrated compliance agent screening applicants against a real
+7,495-entry OFAC sanctions list with a local LLM producing risk summaries.</p></div>
+</div>
+
+<div class="activity-item">
+<div class="activity-num">02</div>
+<div class="activity-body"><p><strong>Computer Vision Researcher, UBC Animal Welfare Program —</strong>
+Fine-tuned YOLO on 1,100 annotated clips across 8 experimental splits to detect cross-sucking behaviour in
+dairy calves, achieving 0.73 average temporal IoU against a 0.70 baseline — full pipeline from 300GB of raw
+barn footage to automated evaluation reports on SLURM HPC.</p></div>
+</div>
+
+<div class="activity-item">
+<div class="activity-num">03</div>
+<div class="activity-body"><p><strong>RAG Search Engine —</strong> Building a full-stack retrieval system from
+scratch — BM25 keyword ranking, TF-IDF scoring, an inverted index, and semantic search using
+sentence-transformer embeddings with chunking strategies and hybrid retrieval, served via FastAPI and
+deployed on Render.</p></div>
+</div>
+
+<div class="activity-item">
+<div class="activity-num">04</div>
+<div class="activity-body"><p><strong>Actively seeking ML / DS roles —</strong> Open to ML engineering and
+data science positions, with particular interest in roles involving end-to-end pipeline ownership, applied
+NLP, and forecasting at scale — actively building toward fine-tuning.</p></div>
+</div>
+
+## Education {#education}
+
+<div class="edu-item">
+<div class="edu-logo"><img src="images/ubc-logo.png" alt="UBC logo" /></div>
+<div class="edu-body">
+<div class="edu-degree">Master of Data Science</div>
+<div class="edu-school">University of British Columbia</div>
+<div class="edu-date">Aug 2025 – Jun 2026</div>
+</div>
+</div>
+
+<div class="edu-item">
+<div class="edu-logo"><img src="images/mit-logo.png" alt="MIT logo" /></div>
+<div class="edu-body">
+<div class="edu-degree">MicroMasters: Statistics &amp; Data Science</div>
+<div class="edu-school">MIT Open Learning</div>
+<div class="edu-date">May 2023 – Jan 2025</div>
+</div>
+</div>
+
+<div class="edu-item">
+<div class="edu-logo"><img src="images/tmu-logo.png" alt="TMU logo" /></div>
+<div class="edu-body">
+<div class="edu-degree">Bachelor of Commerce: Business Technology Management</div>
+<div class="edu-school">Toronto Metropolitan University (formerly Ryerson University)</div>
+<div class="edu-date">Sep 2016 – Jun 2021</div>
+</div>
+</div>
+
+## Technical Skills {#skills}
+
+<div class="skill-row"><div class="skill-key">Languages</div><div class="skill-val">Python, R, SQL, Bash</div></div>
+<div class="skill-row"><div class="skill-key">ML &amp; GenAI</div><div class="skill-val">PyTorch, scikit-learn, LLM APIs, LangChain, LangGraph, YOLO, OpenCV, DeepFace</div></div>
+<div class="skill-row"><div class="skill-key">RAG &amp; Retrieval</div><div class="skill-val">BM25, TF-IDF, semantic search, vector embeddings, FAISS (in progress)</div></div>
+<div class="skill-row"><div class="skill-key">Data Engineering</div><div class="skill-val">Apache Airflow, Spark, ETL pipeline design, REST API scraping, OCR, fuzzy matching / entity resolution</div></div>
+<div class="skill-row"><div class="skill-key">Cloud &amp; Infra</div><div class="skill-val">AWS S3, Azure, Alibaba Cloud, Docker, Git, SLURM, HPC distributed training, streaming APIs, MLflow</div></div>
+<div class="skill-row"><div class="skill-key">Visualisation</div><div class="skill-val">Tableau, Power BI, Quarto, MkDocs</div></div>
+
+## Projects {#projects}
+
+<div class="project-card">
+<div class="card-top"><div class="card-badges"><span class="badge b-wip">In Progress</span></div></div>
+<div class="card-title">RAG Search Engine</div>
+<div class="card-sub">Full-Stack NLP · BM25 · Semantic Search · FastAPI</div>
+<p class="card-desc">Building a full-stack retrieval system from scratch — implementing
+<strong>BM25 keyword ranking</strong>, <strong>TF-IDF scoring</strong>, an inverted index, and semantic
+search using sentence-transformer embeddings with chunking strategies and hybrid retrieval. Served via a
+<strong>FastAPI</strong> backend and deployed on Render.</p>
+<div class="card-tags">
+  <span class="tag">BM25</span><span class="tag">TF-IDF</span><span class="tag">Inverted Index</span>
+  <span class="tag">Sentence-Transformers</span><span class="tag">Hybrid Retrieval</span><span class="tag">FastAPI</span>
+  <span class="tag">Python</span><span class="tag">Render</span>
+</div>
+<div class="card-links"><a href="https://github.com/raymondww/rag-search-engine" target="_blank" class="card-link">GitHub →</a></div>
+
+<div style="margin-top:1.25rem;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1.25rem 1.5rem;">
+<div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.85rem;">Live Demo — BM25 Movie Search</div>
+<div style="display:flex;border:1px solid var(--border-2);border-radius:4px;overflow:hidden;margin-bottom:1rem;">
+<input type="text" id="search-input" placeholder="Try: animated family, sci-fi space, action heist..." style="flex:1;background:transparent;border:none;outline:none;padding:0.65rem 0.9rem;font-family:'DM Mono',monospace;font-size:12px;color:var(--text);" />
+<button onclick="runSearch()" style="background:var(--text);border:none;color:var(--bg);padding:0 1rem;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">Search</button>
+</div>
+<div id="search-results" style="min-height:40px;">
+<p style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text-3);">Enter a query to search 5,000 movies using BM25 ranking.</p>
+</div>
+</div>
+</div>
+
+<div class="project-card">
+<div class="card-top"><div class="card-badges"><span class="badge b-wip">Complete</span></div></div>
+<div class="card-title">AI-Driven KYC Onboarding &amp; Compliance Engine</div>
+<div class="card-sub">LangGraph · OSINT Agent · OCR / Face-Match / Liveness · Config-Driven Routing</div>
+<p class="card-desc">Architected a three-stage, jurisdiction-aware onboarding pipeline (behavioral fraud gate
+→ OCR / face-match / liveness verification → OSINT compliance agent) as a single generator function reused,
+unmodified, by both a live streaming API and a CLI batch script, with zero duplicated business logic.
+Config-driven country routing adds a new jurisdiction with one JSON entry, no new code branch. Built a
+<strong>LangGraph-orchestrated</strong> compliance agent screening applicants against a real 7,495-entry OFAC
+sanctions list (fuzzy name / DOB matching), live adverse-media and court-record search, with a local LLM
+(Ollama) producing a LOW / MEDIUM / HIGH risk summary — keeping the sanctions match deterministic and
+independent of the LLM output to bound hallucination risk in a compliance-critical decision.</p>
+<div class="card-tags">
+  <span class="tag">LangGraph</span><span class="tag">OCR</span><span class="tag">Face Match</span>
+  <span class="tag">Liveness Detection</span><span class="tag">OSINT</span><span class="tag">OFAC Screening</span>
+  <span class="tag">Ollama</span><span class="tag">Python</span>
+</div>
+<div class="video-label">Demo Recording</div>
+<video controls preload="metadata"><source src="videos/kyc_demo.mp4" type="video/mp4"></video>
+</div>
+
+<div class="project-card">
+<div class="card-top"><div class="card-badges"><span class="badge b-done">Complete · Capstone · UBC 2026</span></div></div>
+<div class="card-title">MooVision</div>
+<div class="card-sub">Computer Vision · YOLO Fine-tuning · Seq-NMS · HPC / SLURM</div>
+<p class="card-desc">Automated dairy calf cross-sucking behavior detection system built as UBC MDS Capstone
+in partnership with the <strong>UBC Animal Welfare Program</strong>. Fine-tuned <strong>YOLO</strong> on
+1,100 annotated clips across 8 experimental splits — achieving <strong>0.73 average temporal IoU vs 0.70
+baseline</strong>. Engineered the full pipeline from <strong>300GB of raw barn footage</strong> to automated
+evaluation reports: OpenCV clipping, proximity-based baseline, Seq-NMS temporal linking, and a Makefile
+workflow integrating preprocessing, SLURM-parallelised HPC training, inference, and Quarto report generation.</p>
+<div class="card-tags">
+  <span class="tag">YOLO</span><span class="tag">Seq-NMS</span><span class="tag">OpenCV</span>
+  <span class="tag">PyTorch</span><span class="tag">SLURM / HPC</span><span class="tag">Docker</span>
+  <span class="tag">Quarto</span><span class="tag">Python</span><span class="tag">F2 Metric</span><span class="tag">Animal Welfare</span>
+</div>
+<div class="video-label">Demo Recording</div>
+<video controls preload="metadata"><source src="videos/moovision_demo.mp4" type="video/mp4"></video>
+<div class="card-links" style="margin-top:1rem;"><a href="https://github.com/UBC-AWP/mooVision" target="_blank" class="card-link">GitHub →</a></div>
+</div>
+
+## Hackathon Demo {#hackathon}
+
+<div class="project-card">
+<div class="card-top"><div class="card-badges"><span class="badge b-done">Complete · JLL Internal</span></div></div>
+<div class="card-title">GPT-Powered Web Data Extraction Platform</div>
+<div class="card-sub">LLM · Flask · Selenium · Runtime Code Generation · Azure</div>
+<p class="card-desc">Built at an internal JLL hackathon following the public release of GPT-3.5. A Flask
+web platform that lets non-technical analysts extract structured data from <em>any</em> website — no code
+required. Under the hood: <strong>Selenium</strong> renders dynamic JS pages, <strong>BeautifulSoup</strong>
+parses the loaded HTML, and <strong>GPT-3.5 on Azure</strong> generates Python extraction code at runtime
+using <code>exec()</code> — inferring the page structure from user-provided sample values.</p>
+<div class="card-tags">
+  <span class="tag">GPT-3.5</span><span class="tag">Flask</span><span class="tag">Selenium</span>
+  <span class="tag">BeautifulSoup</span><span class="tag">Azure OpenAI</span><span class="tag">Runtime Code Generation</span><span class="tag">Python</span>
+</div>
+<div class="video-label">Demo Recording</div>
+<video controls preload="metadata"><source src="videos/hackathon_demo.mp4" type="video/mp4"></video>
+</div>
+
+<script>
+const API_URL = 'https://rag-search-engine-5swz.onrender.com';
+async function runSearch() {
+  const query = document.getElementById('search-input').value.trim();
+  if (!query) return;
+  const resultsEl = document.getElementById('search-results');
+  resultsEl.innerHTML = '<p style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--text-3);">Searching...</p>';
+  try {
+    const res = await fetch(`${API_URL}/search?query=${encodeURIComponent(query)}&limit=5`);
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    if (!data.results || !data.results.length) {
+      resultsEl.innerHTML = '<p style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--text-3);">No results found.</p>';
+      return;
+    }
+    resultsEl.innerHTML = data.results.map((r, i) => `
+      <div style="display:flex;align-items:baseline;gap:1rem;padding:0.4rem 0;border-bottom:1px solid var(--border);">
+        <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-3);min-width:16px;">${i + 1}</span>
+        <span style="flex:1;font-size:13px;color:var(--text);">${r.title}</span>
+        <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-2);">${r.score.toFixed(2)}</span>
+      </div>`).join('');
+  } catch {
+    resultsEl.innerHTML = '<p style="font-family:\'DM Mono\',monospace;font-size:11px;color:#f87171;">Backend offline — deploy to Render and update API_URL.</p>';
+  }
+}
+document.getElementById('search-input')?.addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(); });
+</script>
